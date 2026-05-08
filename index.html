@@ -465,17 +465,6 @@ main { position: relative; z-index: 1; }
   position: relative;
   overflow: hidden;
 }
-.stats-hero-block::before {
-  content: '4.80';
-  position: absolute;
-  right: -20px; top: 50%;
-  transform: translateY(-50%);
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 18em;
-  color: rgba(170,255,0,0.03);
-  line-height: 1;
-  pointer-events: none;
-}
 .shb-eyebrow { font-family:'Barlow Condensed',sans-serif; font-size:0.8em; letter-spacing:4px; color:var(--lime); text-transform:uppercase; margin-bottom:8px; }
 .shb-title { font-family:'Bebas Neue',sans-serif; font-size:2.5em; letter-spacing:2px; color:var(--white); margin-bottom:16px; }
 .shb-desc { color:rgba(240,247,232,0.65); line-height:1.7; max-width:480px; font-size:0.95em; }
@@ -484,7 +473,6 @@ main { position: relative; z-index: 1; }
 .utr-circle {
   width: 180px; height: 180px;
   border-radius: 50%;
-  background: conic-gradient(var(--gold) 0deg, var(--gold) 173deg, rgba(255,208,96,0.1) 173deg);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -821,7 +809,7 @@ footer {
 <header>
   <div class="logo" onclick="showTab('home', document.querySelector('nav button:first-child'))">
     <span class="logo-ball"></span>
-    MERYEM PINAR
+    <span id="logo-name"></span>
   </div>
   <nav>
     <button class="active" onclick="showTab('home', this)">Home</button>
@@ -839,15 +827,15 @@ footer {
 <div id="tab-home" class="tab-panel active">
   <div class="hero-section">
     <div class="hero-left">
-      <div class="hero-tag">Tennis Athlete · Class of 2029</div>
-      <div class="hero-name">MERYEM</div>
-      <div class="hero-name-accent">PINAR</div>
+      <div class="hero-tag">Tennis Athlete · Class of <span class="p-grad-year"></span></div>
+      <div class="hero-name p-first-name"></div>
+      <div class="hero-name-accent p-last-name"></div>
       <div class="hero-divider"></div>
       <p class="hero-desc">
-        A passionate and driven tennis competitor with a <strong>UTR of 4.80</strong>, competing in <strong>UTR and USTA</strong> tournaments across Texas. Every match, every practice — building toward collegiate tennis.
+        A passionate and driven tennis competitor with a <strong>UTR of <span class="p-utr"></span></strong>, competing in <strong>UTR and USTA</strong> tournaments across Texas. Every match, every practice — building toward collegiate tennis.
       </p>
       <div class="utr-inline">
-        <div class="utr-big">4.80</div>
+        <div class="utr-big p-utr"></div>
         <div class="utr-info">
           <div class="utr-label-top">Current Rating</div>
           <div class="utr-label-bot">Universal Tennis Rating</div>
@@ -865,10 +853,10 @@ footer {
         <div class="hero-photo-placeholder">🎾</div>
       </div>
       <div class="hero-stats-bar">
-        <div class="hstat"><div class="hstat-num">4.80</div><div class="hstat-label">UTR</div></div>
+        <div class="hstat"><div class="hstat-num p-utr"></div><div class="hstat-label">UTR</div></div>
         <div class="hstat"><div class="hstat-num">USTA</div><div class="hstat-label">Ranked</div></div>
-        <div class="hstat"><div class="hstat-num">TX</div><div class="hstat-label">Section</div></div>
-        <div class="hstat"><div class="hstat-num">2029</div><div class="hstat-label">Grad Year</div></div>
+        <div class="hstat"><div class="hstat-num p-section"></div><div class="hstat-label">Section</div></div>
+        <div class="hstat"><div class="hstat-num p-grad-year"></div><div class="hstat-label">Grad Year</div></div>
       </div>
     </div>
   </div>
@@ -878,28 +866,28 @@ footer {
 <div id="tab-about" class="tab-panel">
   <div class="section-wrap">
     <div class="section-eyebrow">The Athlete</div>
-    <h2 class="section-heading">About <span>Meryem</span></h2>
+    <h2 class="section-heading">About <span class="p-first-name"></span></h2>
     <div class="about-layout">
       <div class="about-photo">
         <!-- Replace with: <img src="assets/meryem-about.jpg" alt="Meryem Pinar"> -->
         <div class="about-photo-placeholder">🎾</div>
         <div class="about-photo-badge">
-          <div><div class="apb-utr">4.80</div><div class="apb-label">UTR Rating</div></div>
+          <div><div class="apb-utr p-utr"></div><div class="apb-label">UTR Rating</div></div>
           <div class="apb-right"><div class="tag">USTA</div><div class="apb-label">Ranked Player</div></div>
         </div>
       </div>
       <div>
         <div class="about-bio-text">
-          <p>Meryem Pinar is a dedicated and passionate tennis player currently competing at the middle school level in Allen, Texas. With a <strong>UTR rating of 4.80</strong>, she has demonstrated consistent growth and competitive drive across both UTR and USTA tournaments.</p>
+          <p><span class="p-full-name"></span> is a dedicated and passionate tennis player currently competing at the middle school level in <span class="p-location"></span>. With a <strong>UTR rating of <span class="p-utr"></span></strong>, she has demonstrated consistent growth and competitive drive across both UTR and USTA tournaments.</p>
           <p>Her love for tennis goes beyond the competition — it is a daily commitment to improving her game, building mental toughness, and pushing her limits on and off the court.</p>
-          <p>Meryem competes in <strong>USTA sanctioned matches</strong> and <strong>UTR events</strong> across the Texas section, gaining valuable experience against competitive players at the regional level.</p>
-          <p>Known for her determination and coachability, Meryem brings energy and focus to every practice and match — traits that define her journey as a developing student-athlete with <strong>collegiate tennis as her ultimate goal</strong>.</p>
+          <p>She competes in <strong>USTA sanctioned matches</strong> and <strong>UTR events</strong> across the <span class="p-section-full"></span>, gaining valuable experience against competitive players at the regional level.</p>
+          <p>Known for her determination and coachability, she brings energy and focus to every practice and match — traits that define her journey as a developing student-athlete with <strong>collegiate tennis as her ultimate goal</strong>.</p>
         </div>
         <div class="fact-grid">
           <div class="fact-chip"><div class="fc-icon">🏫</div><div><div class="fc-label">Level</div><div class="fc-val">Middle School</div></div></div>
-          <div class="fact-chip"><div class="fc-icon">🎓</div><div><div class="fc-label">Graduation</div><div class="fc-val">Class of 2029</div></div></div>
-          <div class="fact-chip"><div class="fc-icon">📍</div><div><div class="fc-label">Location</div><div class="fc-val">Allen, Texas</div></div></div>
-          <div class="fact-chip"><div class="fc-icon">🎾</div><div><div class="fc-label">Plays</div><div class="fc-val">Right-handed</div></div></div>
+          <div class="fact-chip"><div class="fc-icon">🎓</div><div><div class="fc-label">Graduation</div><div class="fc-val">Class of <span class="p-grad-year"></span></div></div></div>
+          <div class="fact-chip"><div class="fc-icon">📍</div><div><div class="fc-label">Location</div><div class="fc-val p-location"></div></div></div>
+          <div class="fact-chip"><div class="fc-icon">🎾</div><div><div class="fc-label">Plays</div><div class="fc-val p-handedness"></div></div></div>
           <div class="fact-chip"><div class="fc-icon">🏆</div><div><div class="fc-label">Competing In</div><div class="fc-val">UTR · USTA</div></div></div>
           <div class="fact-chip"><div class="fc-icon">🎯</div><div><div class="fc-label">Goal</div><div class="fc-val">College Recruitment</div></div></div>
         </div>
@@ -916,23 +904,23 @@ footer {
     <div class="stats-hero-block">
       <div>
         <div class="shb-eyebrow">Universal Tennis Rating</div>
-        <div class="shb-title">Current UTR — 4.80</div>
-        <p class="shb-desc">UTR is the most trusted rating system used by college coaches worldwide. It updates after every competitive match. A UTR of <strong>4.80</strong> at middle school level demonstrates strong competitive performance with significant upside heading into high school.</p>
+        <div class="shb-title">Current UTR — <span class="p-utr"></span></div>
+        <p class="shb-desc">UTR is the most trusted rating system used by college coaches worldwide. It updates after every competitive match. A UTR of <strong><span class="p-utr"></span></strong> at middle school level demonstrates strong competitive performance with significant upside heading into high school.</p>
       </div>
-      <div class="utr-circle">
+      <div class="utr-circle" id="utr-circle">
         <div class="utr-circle-inner">
-          <div class="utr-circle-num">4.80</div>
+          <div class="utr-circle-num p-utr"></div>
           <div class="utr-circle-label">UTR</div>
         </div>
       </div>
     </div>
     <div class="stats-cards">
-      <div class="stat-block"><div class="sb-num">UTR</div><div class="sb-title">4.80 Rating</div><div class="sb-desc">Updated after every competitive match — reflects true playing level</div></div>
-      <div class="stat-block"><div class="sb-num">USTA</div><div class="sb-title">Ranked Player</div><div class="sb-desc">Competing in USTA sanctioned tournaments across the Texas section</div></div>
+      <div class="stat-block"><div class="sb-num p-utr"></div><div class="sb-title">UTR Rating</div><div class="sb-desc">Updated after every competitive match — reflects true playing level</div></div>
+      <div class="stat-block"><div class="sb-num">USTA</div><div class="sb-title">Ranked Player</div><div class="sb-desc">Competing in USTA sanctioned tournaments across the <span class="p-section-full"></span></div></div>
       <div class="stat-block"><div class="sb-num">S/D</div><div class="sb-title">Singles & Doubles</div><div class="sb-desc">Experienced in both competitive formats</div></div>
-      <div class="stat-block"><div class="sb-num">TX</div><div class="sb-title">Texas Section</div><div class="sb-desc">One of the most competitive USTA sections in the country</div></div>
+      <div class="stat-block"><div class="sb-num p-section"></div><div class="sb-title"><span class="p-section-full"></span></div><div class="sb-desc">One of the most competitive USTA sections in the country</div></div>
       <div class="stat-block"><div class="sb-num">MS</div><div class="sb-title">Middle School</div><div class="sb-desc">Building competitive experience ahead of high school play</div></div>
-      <div class="stat-block"><div class="sb-num">2029</div><div class="sb-title">Eligible Year</div><div class="sb-desc">Eligible for college recruitment — Class of 2029</div></div>
+      <div class="stat-block"><div class="sb-num p-grad-year"></div><div class="sb-title">Eligible Year</div><div class="sb-desc">Eligible for college recruitment — Class of <span class="p-grad-year"></span></div></div>
     </div>
     <div class="progress-section">
       <h3>SKILL DEVELOPMENT</h3>
@@ -1001,12 +989,12 @@ footer {
         <div class="achievements">
           <div class="achievement-item">
             <div class="ach-icon">🏆</div>
-            <div><div class="ach-title">UTR 4.80 Rating</div><div class="ach-sub">Achieved through competitive UTR matches</div></div>
+            <div><div class="ach-title">UTR <span class="p-utr"></span> Rating</div><div class="ach-sub">Achieved through competitive UTR matches</div></div>
             <div class="ach-year">2025</div>
           </div>
           <div class="achievement-item">
             <div class="ach-icon">🎾</div>
-            <div><div class="ach-title">USTA Ranked</div><div class="ach-sub">Texas Section — active competitor</div></div>
+            <div><div class="ach-title">USTA Ranked</div><div class="ach-sub"><span class="p-section-full"></span> — active competitor</div></div>
             <div class="ach-year">2025</div>
           </div>
           <div class="achievement-item">
@@ -1027,7 +1015,7 @@ footer {
       <div class="timeline">
         <div class="tl-item">
           <div class="tl-year">2025 — PRESENT</div>
-          <div class="tl-title">UTR 4.80 · Active USTA Competitor</div>
+          <div class="tl-title">UTR <span class="p-utr"></span> · Active USTA Competitor</div>
           <div class="tl-desc">Competing regularly in UTR and USTA sanctioned events across Texas. Consistent rating growth and match experience building toward high school tennis.</div>
         </div>
         <div class="tl-item">
@@ -1051,41 +1039,102 @@ footer {
     <div class="contact-hero">
       <div class="section-eyebrow" style="margin-bottom:12px;">Recruiting Inquiries Welcome</div>
       <h2>Let's Connect</h2>
-      <p>Interested in Meryem as a future recruit? We welcome contact from college coaches, programs, and academies. Meryem is committed to developing her game with collegiate tennis as her goal.</p>
-      <a href="mailto:ugur@pinarfamily.com" class="btn-lime">📬 Send Recruiting Inquiry</a>
+      <p>Interested in <span class="p-first-name"></span> as a future recruit? We welcome contact from college coaches, programs, and academies. She is committed to developing her game with collegiate tennis as her goal.</p>
+      <a id="contact-email-btn" href="#" class="btn-lime">📬 Send Recruiting Inquiry</a>
     </div>
     <div class="contact-grid">
-      <a href="mailto:ugur@pinarfamily.com" class="contact-tile">
+      <a id="contact-email-tile" href="#" class="contact-tile">
         <div class="ct-icon">📧</div>
         <div class="ct-label">Email</div>
-        <div class="ct-sub">ugur@pinarfamily.com</div>
+        <div class="ct-sub p-email"></div>
       </a>
       <div class="contact-tile">
         <div class="ct-icon">📍</div>
         <div class="ct-label">Location</div>
-        <div class="ct-sub">Allen, Texas</div>
+        <div class="ct-sub p-location"></div>
       </div>
       <div class="contact-tile">
         <div class="ct-icon">🎓</div>
         <div class="ct-label">Grad Year</div>
-        <div class="ct-sub">Class of 2029</div>
+        <div class="ct-sub">Class of <span class="p-grad-year"></span></div>
       </div>
     </div>
     <div class="recruit-cta">
       <div>
         <h3>College Coaches & Recruiters</h3>
-        <p>Meryem is actively developing her game with college recruitment in mind. Available for campus visits and welcomes contact from coaching staffs per NCAA and NAIA guidelines. UTR: 4.80 · Class of 2029 · Texas Section.</p>
+        <p><span class="p-first-name"></span> is actively developing her game with college recruitment in mind. Available for campus visits and welcomes contact from coaching staffs per NCAA and NAIA guidelines. UTR: <span class="p-utr"></span> · Class of <span class="p-grad-year"></span> · <span class="p-section-full"></span>.</p>
       </div>
-      <a href="mailto:ugur@pinarfamily.com" class="btn-dark">📬 Get In Touch</a>
+      <a id="recruit-cta-btn" href="#" class="btn-dark">📬 Get In Touch</a>
     </div>
   </div>
 </div>
 
 </main>
 
-<footer>© 2026 Meryem Pinar · Tennis Athlete · Allen, Texas · Class of 2029</footer>
+<footer id="site-footer"></footer>
 
 <script>
+// ─────────────────────────────────────────────────────────────
+//  PLAYER CONFIG — the only place you need to edit player data
+// ─────────────────────────────────────────────────────────────
+const PLAYER = {
+  firstName:   'Meryem',
+  lastName:    'Pinar',
+  utr:         '4.88',        // update this after every tournament
+  gradYear:    '2029',
+  location:    'Allen, Texas',
+  section:     'TX',          // short label (stat bar, stat card)
+  sectionFull: 'Texas Section', // full label (prose, recruit CTA)
+  handedness:  'Right-handed',
+  email:       'ugur@pinarfamily.com',
+};
+
+// ─────────────────────────────────────────────────────────────
+//  Auto-derived — no need to touch below this line
+// ─────────────────────────────────────────────────────────────
+PLAYER.fullName = `${PLAYER.firstName} ${PLAYER.lastName}`;
+
+function applyConfig() {
+  const fill = (sel, val) =>
+    document.querySelectorAll(sel).forEach(el => el.textContent = val);
+
+  fill('.p-first-name',   PLAYER.firstName);
+  fill('.p-last-name',    PLAYER.lastName);
+  fill('.p-full-name',    PLAYER.fullName);
+  fill('.p-utr',          PLAYER.utr);
+  fill('.p-grad-year',    PLAYER.gradYear);
+  fill('.p-location',     PLAYER.location);
+  fill('.p-section',      PLAYER.section);
+  fill('.p-section-full', PLAYER.sectionFull);
+  fill('.p-handedness',   PLAYER.handedness);
+  fill('.p-email',        PLAYER.email);
+
+  // Logo
+  document.getElementById('logo-name').textContent = PLAYER.fullName;
+
+  // Page title
+  document.title = `${PLAYER.fullName} — Tennis Recruitment Profile`;
+
+  // Email hrefs
+  const mailto = `mailto:${PLAYER.email}`;
+  ['contact-email-btn', 'contact-email-tile', 'recruit-cta-btn']
+    .forEach(id => { const el = document.getElementById(id); if (el) el.href = mailto; });
+
+  // Footer (auto-updates year too)
+  document.getElementById('site-footer').textContent =
+    `© ${new Date().getFullYear()} ${PLAYER.fullName} · Tennis Athlete · ${PLAYER.location} · Class of ${PLAYER.gradYear}`;
+
+  // UTR circle conic gradient (max UTR = 16.50)
+  const deg = Math.round((parseFloat(PLAYER.utr) / 16.5) * 360);
+  document.getElementById('utr-circle').style.background =
+    `conic-gradient(var(--gold) 0deg, var(--gold) ${deg}deg, rgba(255,208,96,0.1) ${deg}deg)`;
+}
+
+applyConfig();
+
+// ─────────────────────────────────────────────────────────────
+//  Tab navigation
+// ─────────────────────────────────────────────────────────────
 function showTab(name, btn) {
   document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
   document.querySelectorAll('nav button').forEach(b => b.classList.remove('active'));
