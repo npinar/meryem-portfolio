@@ -153,8 +153,10 @@ main { position: relative; z-index: 1; flex: 1; }
   text-transform: uppercase;
   margin-bottom: 24px;
   width: fit-content;
+  max-width: 100%;
 }
 .hero-tag::before {
+  flex-shrink: 0;
   content: '';
   width: 6px; height: 6px;
   background: var(--lime);
@@ -301,7 +303,7 @@ footer {
 <!-- HOME -->
 <div id="tab-home" class="tab-panel active">
   <section class="hero">
-    <div class="hero-tag">Competitive Tennis Player · Class of <span id="grad-year"></span></div>
+    <div class="hero-tag"><span>Competitive Tennis Player · Class of <span id="grad-year"></span></span></div>
     <h1 class="hero-name" id="first-name"></h1>
     <div class="hero-name-accent" id="last-name"></div>
     <div class="hero-divider"></div>
