@@ -301,7 +301,7 @@ footer {
 <!-- HOME -->
 <div id="tab-home" class="tab-panel active">
   <section class="hero">
-    <div class="hero-tag">Competitive Tennis Player</div>
+    <div class="hero-tag">Competitive Tennis Player · Class of <span id="grad-year"></span></div>
     <h1 class="hero-name" id="first-name"></h1>
     <div class="hero-name-accent" id="last-name"></div>
     <div class="hero-divider"></div>
@@ -346,6 +346,7 @@ footer {
 const PLAYER = {
   firstName: 'Meryem',
   lastName:  'Pinar',
+  gradYear:  '2032',   // high school graduation year (college class)
 };
 
 const fullName = `${PLAYER.firstName} ${PLAYER.lastName}`;
@@ -395,6 +396,7 @@ ACHIEVEMENTS.forEach(a => {
 });
 document.getElementById('first-name').textContent = PLAYER.firstName;
 document.getElementById('last-name').textContent  = PLAYER.lastName;
+document.getElementById('grad-year').textContent  = PLAYER.gradYear;
 document.getElementById('logo-name').textContent  = fullName;
 document.title = `${fullName} — Tennis`;
 document.getElementById('site-footer').textContent =
