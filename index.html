@@ -236,6 +236,25 @@ main { position: relative; z-index: 1; flex: 1; }
   margin-bottom: 20px;
 }
 
+/* HIGHLIGHTS */
+.achievements { display: flex; flex-direction: column; gap: 16px; }
+.ach {
+  background: #0a1f10;
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--lime);
+  border-radius: 12px;
+  padding: 22px 26px;
+}
+.ach-when {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.1em;
+  letter-spacing: 2px;
+  color: var(--lime);
+}
+.ach-title { font-weight: 500; font-size: 1.1em; color: var(--white); margin: 2px 0 2px; }
+.ach-meta { font-size: 0.85em; color: var(--muted); margin-bottom: 10px; }
+.ach-text { color: rgba(240,247,232,0.78); line-height: 1.7; font-size: 0.98em; }
+
 /* FOOTER */
 footer {
   position: relative;
@@ -272,6 +291,7 @@ footer {
   </button>
   <nav aria-label="Main">
     <button id="nav-home" class="active" onclick="showTab('home')">Home</button>
+    <button id="nav-highlights" onclick="showTab('highlights')">Highlights</button>
     <button id="nav-about" onclick="showTab('about')">About</button>
   </nav>
 </header>
@@ -292,6 +312,15 @@ footer {
   </section>
 </div>
 
+<!-- HIGHLIGHTS -->
+<div id="tab-highlights" class="tab-panel">
+  <section class="section-wrap">
+    <div class="section-eyebrow">Results</div>
+    <h2 class="section-heading">Highlights</h2>
+    <div class="achievements" id="achievements"></div>
+  </section>
+</div>
+
 <!-- ABOUT -->
 <div id="tab-about" class="tab-panel">
   <section class="section-wrap">
@@ -301,7 +330,7 @@ footer {
       <p>Tennis isn’t just something I play, it’s something I love. From the first ball to the last point, I’m happiest when I’m on the court, competing and working to get better.</p>
       <p>I’ve learned that every match teaches me something, whether I win or lose. A tough loss shows me what to fix, and a big win reminds me why the hard work matters. I stay patient through long rallies, keep my focus when the score gets tight, and always try to bring good energy to the court.</p>
       <p>Off the court, I’m just as committed. I work hard in school, stay disciplined with my training, and value the friends, coaches, and family who support me along the way.</p>
-      <p>My goal is to play tennis in college, and I’m putting in the work every day to get there. </p>
+      <p>My goal is to play tennis in college, and I’m putting in the work every day to get there. This site is a record of that journey. Thanks for stopping by, and I hope you’ll follow along.</p>
     </div>
   </section>
 </div>
@@ -320,6 +349,50 @@ const PLAYER = {
 };
 
 const fullName = `${PLAYER.firstName} ${PLAYER.lastName}`;
+
+// ─────────────────────────────────────────────
+//  HIGHLIGHTS — add new results at the TOP of this list
+// ─────────────────────────────────────────────
+const ACHIEVEMENTS = [
+  {
+    when:  '2025 & 2026',
+    title: 'IMG Academy Discovery Open — Qualifier',
+    meta:  'Two years in a row',
+    text:  'Qualified for the IMG Academy Discovery Open in both 2025 and 2026.'
+  },
+  {
+    when:  'Nov 2026',
+    title: 'Arlington — Champion',
+    meta:  'Girls’ 14U Singles · Level 4 Open',
+    text:  'Won the title without dropping a set: all 8 sets won and only 6 games lost across four matches, including 6-0 6-0 in the quarterfinal.'
+  },
+  {
+    when:  'Nov 2025',
+    title: 'Arlington — Champion',
+    meta:  'Girls’ 12U Singles · Level 4 Open',
+    text:  'Won the title in straight sets in every round, including a 6-1 6-2 final.'
+  },
+  {
+    when:  'Oct 2025',
+    title: 'BAD DAWG Texas Intrasectional',
+    meta:  'Team Event · Level 4 Closed',
+    text:  'Went 5-0 at #2 singles for her team, and also played #1 and #2 doubles.'
+  },
+];
+
+const list = document.getElementById('achievements');
+ACHIEVEMENTS.forEach(a => {
+  const card = document.createElement('div');
+  card.className = 'ach';
+  [['ach-when', a.when], ['ach-title', a.title], ['ach-meta', a.meta], ['ach-text', a.text]]
+    .forEach(([cls, txt]) => {
+      const d = document.createElement('div');
+      d.className = cls;
+      d.textContent = txt;
+      card.appendChild(d);
+    });
+  list.appendChild(card);
+});
 document.getElementById('first-name').textContent = PLAYER.firstName;
 document.getElementById('last-name').textContent  = PLAYER.lastName;
 document.getElementById('logo-name').textContent  = fullName;
@@ -338,7 +411,7 @@ function showTab(name) {
   history.replaceState(null, '', name === 'home' ? location.pathname : '#' + name);
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
-if (location.hash === '#about') showTab('about');
+if (['#about', '#highlights'].includes(location.hash)) showTab(location.hash.slice(1));
 </script>
 </body>
 </html>
